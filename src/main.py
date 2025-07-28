@@ -79,11 +79,16 @@ melody_stream = stream.Stream(notes_in_song)
 
 #Run key analysis
 key_detected = melody_stream.analyze('Krumhansl')
-print("🎯 Detected key:", key_detected)
+
+print("🎯 Detected key:", key_detected.tonic.name)
+print("🎯 Mode:", key_detected.mode)
 
 
-#This gives you the pitch class with the most average energy across the song. 
-#It’s a basic method, but can be surprisingly accurate for pop/beat-based music.
+
+#print("🎯 Detected key:", key_detected)
+
+
+#---------------------------------------------------
 
 
 
