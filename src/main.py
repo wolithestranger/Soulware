@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from music21 import analysis, key, pitch, stream, note
 import numpy as np
 
-import numpy as np
+from generate_feedback import generate_feedback
 
 #from IPython.display import Audio  # This only works in Jupyter, optional
 
@@ -107,3 +107,13 @@ plt.tight_layout()
 plt.show()
 
 
+feedback = generate_feedback(
+    key=key_detected.tonic.name,
+    mode=key_detected.mode,
+    tempo=tempo,
+    chords=["F#m", "C#m", "G#m", "C#m"],
+    instruments=["classical guitar", "bass", "congas", "bongos", "drums", "saxophone", "light Rhodes"],
+    texture_desc="Dark, sultry, mid-tempo Afrobeat groove",
+)
+
+print("🎤 AI Feedback:\n", feedback)
