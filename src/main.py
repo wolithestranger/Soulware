@@ -6,12 +6,20 @@ from music21 import analysis, key, pitch, stream, note
 import numpy as np
 
 from generate_feedback import generate_feedback
+from audio_features.clap_utils import get_clap_embedding
+
 
 #from IPython.display import Audio  # This only works in Jupyter, optional
 
 # Load audio
-filename = "audio/pretty_angel.wav"  # Replace this with your actual file path
+filename = "C:/Users/nimbeoviosud/Soulware/audio/pretty_angel.wav"
 y, sr = librosa.load(filename)
+
+clap_embedding = get_clap_embedding(filename)
+
+if clap_embedding is not None:
+    print("🎧 CLAP embedding preview:", clap_embedding[:5])
+
 
 #y is te audio time series (as a NumPy array)
 #sr is the sampling rate (usually 22050 by default)
@@ -114,6 +122,7 @@ feedback = generate_feedback(
     chords=["F#m", "C#m", "G#m", "C#m"],
     instruments=["classical guitar", "bass", "congas", "bongos", "drums", "saxophone", "light Rhodes"],
     texture_desc="Dark, sultry, mid-tempo Afrobeat groove",
+    clap_vector=clap_embedding
 )
 
 print("🎤 AI Feedback:\n", feedback)
