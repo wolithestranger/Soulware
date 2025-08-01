@@ -12,7 +12,8 @@ from audio_features.clap_utils import get_clap_embedding
 #from IPython.display import Audio  # This only works in Jupyter, optional
 
 # Load audio
-filename = "C:/Users/nimbeoviosud/Soulware/audio/pretty_angel.wav"
+filename = "C:/Users/nimbeoviosud/Soulware/audio/kid_a_radiohead.mp3"
+#"C:/Users/nimbeoviosud/Soulware/audio/pretty_angel.wav"
 y, sr = librosa.load(filename)
 
 clap_embedding = get_clap_embedding(filename)
@@ -119,9 +120,9 @@ feedback = generate_feedback(
     key=key_detected.tonic.name,
     mode=key_detected.mode,
     tempo=tempo,
-    chords=["F#m", "C#m", "G#m", "C#m"],
-    instruments=["classical guitar", "bass", "congas", "bongos", "drums", "saxophone", "light Rhodes"],
-    texture_desc="Dark, sultry, mid-tempo Afrobeat groove",
+    chords=[],#["F#m", "C#m", "G#m", "C#m"],
+    instruments=[],#["classical guitar", "bass", "congas", "bongos", "drums", "saxophone", "light Rhodes"],
+    texture_desc=[],#"Dark, sultry, mid-tempo Afrobeat groove",
     clap_vector=clap_embedding
 )
 
